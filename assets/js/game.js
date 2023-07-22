@@ -3,21 +3,22 @@ var playerHealth = 100;
 var playerAttack = 10;
 var playerMoney = 10;
 
-var enemyName = "Roborto";
+var enemyNames = ["Roborto", "Amy Android", "Robo Trumble"];
 var enemyHealth = 50;
 var enemyAttack = 12 ;
 
 console.log("Player name: " + playerName + "  Attack: " + playerAttack + "  Health: " + playerHealth);
-console.log("Enemy name: " + enemyName + "  Attack: " + enemyAttack + "  Health: " + enemyHealth)
+console.log("Enemy name: " + enemyNames + "  Attack: " + enemyAttack + "  Health: " + enemyHealth)
 
-
-var fight = function() {
+var fight = function(enemyName) {
     // Alert players that they are starting the round
     window.alert("Welcome to Robot Gladiators");
     // Asking the player if they would like to fight or skip
     var promptFight = window.prompt("Would you like to FIGHT or SKIP this battle? enter 'FIGHT' or 'SKIP' to choose.");
     //check if player use the word "FIGHT" OR "fight"
     if(promptFight==="FIGHT" || promptFight === "fight"){
+
+        
         //Subtract the value of `playerAttack` from the value of `enemyHealth` and use that result to update the value in the `enemyHealth` variable
          enemyHealth= enemyHealth- playerAttack;
         // Log a resulting message to the console so we know that it worked.
@@ -55,4 +56,9 @@ var fight = function() {
     }
 };
 
-fight();
+//  loop through each enemy
+for(var i=0; i < enemyNames.length; i++){
+    fight(enemyNames[i]);
+}
+
+//fight();
